@@ -1,0 +1,254 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap");
+
+:root {
+  /*### Primary*/
+  --Desaturated-Red: hsl(0, 36%, 70%);
+  --Soft-Red: hsl(0, 93%, 68%);
+
+  /*### Neutral*/
+  --Dark-Grayish-Red: hsl(0, 6%, 24%);
+
+  /*### Gradients*/
+  --Linear-135deg-from: hsl(0, 0%, 100%);
+  --Linear-135deg-to: hsl(0, 100%, 98%);
+  --Linear2-135deg-from: hsl(0, 80%, 86%);
+  --Linear2-135deg-to: hsl(0, 74%, 74%);
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+body {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 1rem;
+  color: var(--Desaturated-Red);
+  background-image: url(images/bg-pattern-desktop.svg);
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+}
+.siteConteiner {
+  position: relative;
+  max-width: 90rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/***  Header  ***/
+.logo {
+  margin-top: min(2.5vw, 4rem);
+  width: 10rem;
+  height: auto;
+}
+
+/***  Main  ***/
+h1 {
+  font-size: 4rem;
+  font-weight: 200;
+  text-transform: uppercase;
+  letter-spacing: 1rem;
+}
+.h1span {
+  font-weight: 600;
+  color: var(--Dark-Grayish-Red);
+}
+p {
+  line-height: 1.7;
+  margin: 1rem 0 2rem 0;
+}
+main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "mainConteiner mainPhoto";
+}
+.mainConteiner {
+  max-width: 28rem;
+  grid-area: mainConteiner;
+  display: grid;
+}
+.mainContent {
+  justify-self: center;
+}
+.mainPhoto {
+  grid-area: mainPhoto;
+  max-width: 610px;
+  margin-left: 2rem;
+}
+.myForm {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+input {
+  flex-grow: 2;
+  height: 3.5rem;
+  padding: 1.2rem 2rem;
+  border: 1px solid var(--Desaturated-Red);
+  border-radius: 10rem;
+  color: var(--Desaturated-Red);
+  outline: none;
+  background-color: transparent;
+}
+input::placeholder {
+  color: var(--Desaturated-Red);
+}
+.submitButton {
+  box-shadow: 0px 13px 30px -8px var(--Desaturated-Red);
+  height: 3.5rem;
+  z-index: 2;
+  position: absolute;
+  right: 0;
+  top: 0;
+  border: none;
+  border-radius: 10rem;
+  padding: 0 3rem;
+  background-image: linear-gradient(
+    135deg,
+    var(--Linear2-135deg-from),
+    var(--Linear2-135deg-to)
+  );
+}
+.submitButton:hover {
+  cursor: pointer;
+  background-image: linear-gradient(
+    135deg,
+    var(--Linear2-135deg-from),
+    var(--Linear2-135deg-from)
+  );
+}
+input[type="email"] {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 1rem;
+  background: transparent;
+  filter: opacity(50%);
+}
+.iconError {
+  display: none;
+  position: absolute;
+  right: 8rem;
+  top: 1rem;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+.okMessage {
+  z-index: 3;
+  display: none;
+  position: absolute;
+  color: white;
+  height: 100vh;
+  width: 100vw;
+  font-size: 8rem;
+  background-image: radial-gradient(
+    var(--Linear2-135deg-to),
+    rgba(255, 255, 255, 0)
+  );
+  place-content: center;
+  animation-name: fadeAnim;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
+  animation-play-state: paused;
+}
+@keyframes fadeAnim {
+  0% {
+    filter: opacity(0%);
+  }
+  20% {
+    filter: opacity(100%);
+  }
+  40% {
+    filter: opacity(100%);
+  }
+  100% {
+    filter: opacity(0%);
+  }
+}
+.errorMessage {
+  display: none;
+  top: 4rem;
+  left: 2rem;
+  position: absolute;
+  color: var(--Soft-Red);
+  font-size: 0.9rem;
+}
+
+/***  Footer  ***/
+footer {
+  margin-top: 2rem;
+  font-size: 11px;
+  text-align: center;
+}
+footer a {
+  color: hsl(228, 45%, 44%);
+}
+
+/***  Media Query  ***/
+@media screen and (max-width: 820px) {
+  body {
+    background-image: linear-gradient(
+      135deg,
+      var(--Linear-135deg-from),
+      var(--Linear-135deg-to)
+    );
+  }
+  main {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "mainPhoto"
+      "mainConteiner";
+  }
+  .mainPhoto {
+    margin: 5rem 0 3rem 0;
+  }
+  .siteConteiner {
+    padding: 0;
+    width: 100%;
+    display: flex;
+  }
+  .mainConteiner {
+    justify-content: center;
+  }
+  .mainContent {
+    text-align: center;
+  }
+  .mainPhoto img {
+    padding: 0;
+    margin: 0;
+  }
+  .logo {
+    position: fixed;
+    top: 0;
+    margin: 2rem 2rem;
+    width: 7rem;
+  }
+  h1 {
+    font-size: 2.5rem;
+    letter-spacing: 9px;
+  }
+  p {
+    font-size: 0.9rem;
+    margin: 2rem;
+  }
+  .myForm {
+    margin: 2rem;
+  }
+  .submitButton {
+    padding: 0 1.7rem;
+  }
+  input,
+  .submitButton {
+    height: 3rem;
+  }
+  footer {
+    margin: 0;
+  }
+}
