@@ -147,7 +147,7 @@ input[type="email"] {
   color: white;
   height: 100vh;
   width: 100vw;
-  font-size: 8rem;
+  font-size: min(10vw, 8rem);
   background-image: radial-gradient(
     var(--Linear2-135deg-to),
     rgba(255, 255, 255, 0)
