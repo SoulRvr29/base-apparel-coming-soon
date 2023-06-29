@@ -4,7 +4,7 @@ const submitButton = document.querySelector(".submitButton");
 const emailAddress = document.querySelector("#emailAddress");
 const input = document.querySelector("input");
 const okMessage = document.querySelector(".okMessage");
-const emailFormat = new RegExp("[A-Za-z0-9._+-]+@[A-Za-z0-9 -]+.[a-z]{2,}");
+const emailFormat = new RegExp("^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+[.][a-zA-Z0-9-.]+$");
 
 submitButton.addEventListener("click", function () {
   var email = emailAddress.value;
